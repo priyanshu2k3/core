@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.570](https://github.com/wrappid/core/compare/v0.0.569...v0.0.570) (2024-11-02)
+
+
+### Bug Fixes
+
+* **core:** :bug: auth impact handle ([b7d223f](https://github.com/wrappid/core/commit/b7d223facc10734f1eb217f027cc93ded4f7583b))
+
 ### [0.0.569](https://github.com/wrappid/core/compare/v0.0.568...v0.0.569) (2024-10-28)
 
 ### [0.0.568](https://github.com/wrappid/core/compare/v0.0.567...v0.0.568) (2024-10-17)
