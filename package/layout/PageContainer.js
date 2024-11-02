@@ -30,8 +30,8 @@ import { SAVE_EXPIRED_SESSION, SESSION_RECALLED } from "../store/types/authTypes
 import { RESET_FROM_STATE, UPDATE_HELPER_FLAG } from "../store/types/formTypes";
 import CoreClasses from "../styles/CoreClasses";
 // eslint-disable-next-line import/order
-import LayoutManager from "./LayoutManager";
 import CoreThemeProvider from "../theme/CoreThemeProvider";
+import LayoutManager from "./LayoutManager";
 
 export let mergedComponentRegistry = {};
 export let mergedResourceRegistry = {};
@@ -177,7 +177,7 @@ export default function PageContainer(props) {
   }, [snackMessages, dispatch]);
 
   return sessionExpired && !uid && route?.authRequired ? (
-    <CoreDomNavigate to="checkUserExist" replace={true} />
+    <CoreDomNavigate to="login/check" replace={true} />
   ) : (
     <>
       {/* <CoreThemeProvider themeID={pageTheme()}> */}

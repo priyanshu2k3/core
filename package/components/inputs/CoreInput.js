@@ -76,8 +76,13 @@ CoreInput.validProps = [
   },
   {
     description: "If true, the input will indicate an error. The prop defaults to the value (false) inherited from the parent FormControl component.",
+    name       : "touched",
+    types      : [{ type: "boolean" }, { type: "string" }],
+  },
+  {
+    description: "If true or string, the input will indicate an error. The prop defaults to the value (false) inherited from the parent FormControl component.",
     name       : "error",
-    types      : [{ type: "boolean" }],
+    types      : [{ type: "boolean" }, { type: "string" }],
   },
   {
     description: "If true, the input will take up the full width of its container.",
@@ -182,6 +187,10 @@ CoreInput.validProps = [
   {
     name : "label",
     types: [{ types: "string" }]
+  },
+  {
+    name : "formik",
+    types: [{ types: "object" }]
   },
   {
     name : "formik",

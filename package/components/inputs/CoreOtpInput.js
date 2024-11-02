@@ -7,8 +7,6 @@ import { NativeOtpInput } from "@wrappid/native";
 import { WrappidDataContext } from "@wrappid/styles";
 import { useDispatch, useSelector } from "react-redux";
 
-import CoreFormErrorText from "./CoreFormErrorText";
-import CoreFormHelperText from "./CoreFormHelperText";
 import { SENT_OTP_API } from "../../config/api";
 import { HTTP } from "../../config/constants";
 import { apiRequestAction } from "../../store/action/appActions";
@@ -17,6 +15,8 @@ import CoreClasses from "../../styles/CoreClasses";
 import CoreTimer from "../dataDisplay/CoreTimer";
 import CoreSkeleton from "../feedback/CoreSkeleton";
 import CoreBox from "../layouts/CoreBox";
+import CoreFormErrorText from "./CoreFormErrorText";
+import CoreFormHelperText from "./CoreFormHelperText";
 
 export default function CoreOtpInput(props) {
   const dispatch = useDispatch();
@@ -30,7 +30,9 @@ export default function CoreOtpInput(props) {
   const sendOtp = () => {
     if (props.to) {
       if (props.sendOtp !== false) {
-        let data = { data: props.to, service: props.editId };
+        // eslint-disable-next-line etc/no-commented-out-code
+        // let data = { data: props.to, service: props.editId };
+        let data = { identifier: props.to, service: props.query };
 
         dispatch(
           apiRequestAction(
