@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.572](https://github.com/wrappid/core/compare/v0.0.571...v0.0.572) (2024-11-04)
+
+
+### Bug Fixes
+
+* **core:** :bug: mask email fix ([7f92c92](https://github.com/wrappid/core/commit/7f92c922e8ce1ca4ba94d70382258ba22574f74f))
+
 ### [0.0.571](https://github.com/wrappid/core/compare/v0.0.569...v0.0.571) (2024-11-02)
 
 
