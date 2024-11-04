@@ -51,6 +51,7 @@ export default function CoreEditForm(props) {
         enableReinitialize={true}
         initialValues={Array.isArray(formData) ? formData[index] : formData}
         validationSchema={forms[formId]?.formValidationOb}
+        // validateOnMount={true} // need to check
         onSubmit={props.handleSubmit}
         innerRef={formRef}
       >

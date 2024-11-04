@@ -311,7 +311,7 @@ export function createFormFieldProps(props, type) {
     OnEditClick,
     editFormId,
     allowEdit,
-    onFormFocus,
+    onFormFocus
   } = props;
 
   if (type === "edit") {
@@ -323,8 +323,8 @@ export function createFormFieldProps(props, type) {
         styleClasses: element?.styleClasses,
         ...(initProps[element?.id] || {}),
       };
-    } else
-      return {
+    } else {
+      let _props = {
         OnEditClick : OnEditClick,
         allowEdit   : allowEdit,
         asyncLoading: element?.asyncLoading,
@@ -441,6 +441,13 @@ export function createFormFieldProps(props, type) {
         value        : formikprops?.values ? formikprops?.values[element?.id] : "",
         ...(initProps[element?.id] || {}),
       };
+
+      if (element?.autoComplete) {
+        _props.autoComplete = element?.autoComplete;
+        _props.inputProps.autoComplete = element?.autoComplete;
+      }
+      return _props;
+    }
   } else {
     return {
       id   : element?.id ? String(element?.id) : "",

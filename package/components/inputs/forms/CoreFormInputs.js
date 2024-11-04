@@ -35,7 +35,7 @@ export default function CoreFormInputs(props) {
     handleButtonCLick,
     submitLoading,
     OnCancelClick,
-    mode,
+    mode
   } = props;
 
   const { config } = React.useContext(WrappidDataContext);
