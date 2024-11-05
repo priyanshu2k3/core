@@ -1,4 +1,3 @@
-import { defaultValidations } from "./componentDefaultValidations";
 import CoreAvatar from "../components/dataDisplay/CoreAvatar";
 import CoreDivider from "../components/dataDisplay/CoreDivider";
 import CoreEmailOrPhoneLink from "../components/dataDisplay/CoreEmailOrPhoneLink";
@@ -8,7 +7,7 @@ import CoreAsyncSelect from "../components/inputs/CoreAsyncSelect";
 import CoreCheckbox from "../components/inputs/CoreCheckbox";
 import CoreConfirmPassword from "../components/inputs/CoreConfirmPassword";
 import CoreContainedButton from "../components/inputs/CoreContainedButton";
-import CoreDatePicker from "../components/inputs/CoreDatepicker";
+import CoreDatePicker from "../components/inputs/CoreDatePicker";
 import CoreDateRangepicker from "../components/inputs/CoreDateRangepicker";
 import CoreDateTimePicker from "../components/inputs/CoreDateTimePicker";
 import CoreDateTimeRangePicker from "../components/inputs/CoreDateTimeRangePicker";
@@ -31,6 +30,7 @@ import CoreTimeRangePicker from "../components/inputs/CoreTimeRangePicker";
 import CoreSpecificForm from "../components/inputs/forms/CoreSpecificForm";
 import ParentChildMap from "../components/inputs/ParentChildMap";
 import CoreSpan from "../components/layouts/CoreSpan";
+import { defaultValidations } from "./componentDefaultValidations";
 
 /* com key will have component reference, 
 defaultValidation will have object with 

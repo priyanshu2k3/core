@@ -702,9 +702,9 @@ export default function CoreDataTable(props) {
     console.log(".........................................");
   }, [props]); */
 
-  /* -- React.useEffect(() => {
-    // filterData();
-  }, [_filterQuery]); */
+  React.useEffect(() => {
+    filterData();
+  }, [_filterQuery]);
 
   return (
     <CoreGrid

@@ -6,16 +6,99 @@ import { NativeDatepicker } from "@wrappid/native";
 
 import CoreFormErrorText from "./CoreFormErrorText";
 import CoreFormHelperText from "./CoreFormHelperText";
-import CoreClasses from "../../styles/CoreClasses";
 // eslint-disable-next-line etc/no-commented-out-code
 // import { sanitizeComponentProps } from "../../utils/componentUtil";
+import { functionsRegistry } from "../../layout/PageContainer";
+import CoreClasses from "../../styles/CoreClasses";
 import CoreBox from "../layouts/CoreBox";
+
+export const DATE_DEFAULT_CONST = {
+  CURRENT  : "current",
+  TODAY    : "today",
+  TOMORROW : "tomorrow",
+  YESTERDAY: "yesterday"
+};
+
+export const DATE_DEFAULT = {
+  "current"  : new Date(),
+  "today"    : new Date(),
+  "tomorrow" : new Date(new Date().setDate(new Date().getDate() + 1)),
+  "yesterday": new Date(new Date().setDate(new Date().getDate() - 1)),
+};
 
 export default function CoreDatePicker(props) {
   // eslint-disable-next-line etc/no-commented-out-code
   // props = sanitizeComponentProps(CoreDatePicker, props);
 
-  const { error, helperText } = props;
+  const {
+    maxDate, minDate, maxDateFunc, minDateFunc, error, helperText 
+  } = props;
+
+  React.useEffect(() => {
+    if (maxDateFunc && functionsRegistry.includes(maxDateFunc)) {
+      const _maxDate = functionsRegistry[maxDateFunc]();
+
+      if (_maxDate) {
+        props = { ...props, maxDate: _maxDate };
+      }
+    }
+
+    if (maxDate) {
+      switch (maxDate) {
+        case DATE_DEFAULT_CONST.CURRENT:
+          props = { ...props, maxDate: DATE_DEFAULT.current };
+          break;
+
+        case DATE_DEFAULT_CONST.TODAY:
+          props = { ...props, maxDate: DATE_DEFAULT.today };
+          break;
+
+        case DATE_DEFAULT_CONST.TOMORROW:
+          props = { ...props, maxDate: DATE_DEFAULT.tomorrow };
+          break;
+
+        case DATE_DEFAULT_CONST.YESTERDAY:
+          props = { ...props, maxDate: DATE_DEFAULT.yesterday };
+          break;
+      
+        default:
+          break;
+      }
+    }
+  }, [maxDate, maxDateFunc]);
+
+  React.useEffect(() => {
+    if (minDateFunc && functionsRegistry.includes(minDateFunc)) {
+      const _minDate = functionsRegistry[minDateFunc]();
+
+      if (_minDate) {
+        props = { ...props, _minDate };
+      }
+    }
+
+    if (minDate) {
+      switch (minDate) {
+        case DATE_DEFAULT_CONST.CURRENT:
+          props = { ...props, minDate: DATE_DEFAULT.current };
+          break;
+
+        case DATE_DEFAULT_CONST.TODAY:
+          props = { ...props, minDate: DATE_DEFAULT.today };
+          break;
+
+        case DATE_DEFAULT_CONST.TOMORROW:
+          props = { ...props, minDate: DATE_DEFAULT.tomorrow };
+          break;
+
+        case DATE_DEFAULT_CONST.YESTERDAY:
+          props = { ...props, minDate: DATE_DEFAULT.yesterday };
+          break;
+      
+        default:
+          break;
+      }
+    }
+  }, [minDate, minDateFunc]);
 
   return (
     <CoreBox>
