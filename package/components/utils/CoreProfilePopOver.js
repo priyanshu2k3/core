@@ -1,5 +1,5 @@
 // eslint-disable-next-line unused-imports/no-unused-imports, no-unused-vars
-import React, { useContext } from "react";
+import React from "react";
 
 // eslint-disable-next-line import/no-unresolved
 import { nativeUseNavigate } from "@wrappid/native";
@@ -26,16 +26,17 @@ export default function CoreProfilePopOver(props) {
   // console.log(props);
   const navigate = nativeUseNavigate();
   const auth = useSelector((state) => state?.auth || {});
-  const profile = useSelector((state) => state?.profile);
 
   const { profileRegistration } = useSelector((state) => state?.api);
 
   const {
+    name = "Unknown User",
+    photo = null,
     email = "",
     emailVerified = false,
     phone = "",
     phoneVerified = false,
-  } = profile?.contact || {};
+  } = auth || {};
   const { onClose } = props;
   const profileCardMenu = [
     {
@@ -81,7 +82,7 @@ export default function CoreProfilePopOver(props) {
         <CoreAvatar
           gridProps={{ gridSize: { md: 4, sm: 3, xs: 3 } }}
           styleClasses={[CoreClasses.DATA_DISPLAY.AVATAR_MEDIUM]}
-          src={auth?.photo}
+          src={photo}
         />
 
         <CoreBox
@@ -90,7 +91,7 @@ export default function CoreProfilePopOver(props) {
         >
           {/* <CoreGrid> */}
           <CoreTypographyBody2 /* hideSeeMore={true} limitChars={30} */>
-            {auth?.name}
+            {name}
           </CoreTypographyBody2>
 
           <CoreTypographyCaption /* hideSeeMore={true} limitChars={30} */>
