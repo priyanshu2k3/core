@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.574](https://github.com/wrappid/core/compare/v0.0.573...v0.0.574) (2024-11-05)
+
+
+### Bug Fixes
+
+* **core:** :zap: profile popover fix ([b709056](https://github.com/wrappid/core/commit/b7090568f3eabdd4768cf734d74da46bd8706a74))
+
 ### [0.0.573](https://github.com/wrappid/core/compare/v0.0.572...v0.0.573) (2024-11-04)
 
 ### [0.0.572](https://github.com/wrappid/core/compare/v0.0.571...v0.0.572) (2024-11-04)
