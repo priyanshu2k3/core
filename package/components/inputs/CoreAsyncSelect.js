@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 
 // eslint-disable-next-line import/no-unresolved
-import { nativeUseNavigate, nativeFilterOptions } from "@wrappid/native";
+import { nativeFilterOptions, nativeUseNavigate } from "@wrappid/native";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -59,7 +59,6 @@ export default function CoreAsyncSelect(props) {
     optionCompProps,
     multiple,
     value,
-    touched,
     error,
     helperText,
     readOnly,
@@ -611,7 +610,7 @@ export default function CoreAsyncSelect(props) {
           <CoreTextField
             {...params}
             label={label}
-            InputLabelProps={{ ...params.InputLabelProps, shrink: true }}
+            InputLabelProps={{ ...params.InputLabelProps }}
             InputProps={{
               ...params.InputProps,
               endAdornment: getEndAdornment(params),
@@ -620,16 +619,16 @@ export default function CoreAsyncSelect(props) {
         )}
       />
 
-      {touched && error && (
-        <CoreFormErrorText styleClasses={[CoreClasses.MARGIN.MT1]}>
-          {touched && error}
-        </CoreFormErrorText>
-      )}
-
       {helperText && (
         <CoreFormHelperText styleClasses={[CoreClasses.MARGIN.MT1]}>
           {helperText}
         </CoreFormHelperText>
+      )}
+      
+      {error && (
+        <CoreFormErrorText styleClasses={[CoreClasses.MARGIN.MT1]}>
+          {error}
+        </CoreFormErrorText>
       )}
     </>
   );

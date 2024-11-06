@@ -6,6 +6,7 @@ import { NativePageContainer, nativeUseLocation } from "@wrappid/native";
 import { StylesProvider, WrappidDataContext } from "@wrappid/styles";
 import { useDispatch, useSelector } from "react-redux";
 
+import LayoutManager from "./LayoutManager";
 import CoreAlert from "../components/feedback/CoreAlert";
 import CoreDialog from "../components/feedback/CoreDialog";
 import CoreSnackbar from "../components/feedback/CoreSnackbar";
@@ -31,7 +32,6 @@ import { RESET_FROM_STATE, UPDATE_HELPER_FLAG } from "../store/types/formTypes";
 import CoreClasses from "../styles/CoreClasses";
 // eslint-disable-next-line import/order
 import CoreThemeProvider from "../theme/CoreThemeProvider";
-import LayoutManager from "./LayoutManager";
 
 export let mergedComponentRegistry = {};
 export let mergedResourceRegistry = {};
