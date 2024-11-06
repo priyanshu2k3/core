@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.576](https://github.com/wrappid/core/compare/v0.0.575...v0.0.576) (2024-11-06)
+
+
+### Bug Fixes
+
+* **core:** :art: code cleanup ([2ad0c9a](https://github.com/wrappid/core/commit/2ad0c9aad09147683f45b464c1c03e7a421b1043))
+* **core:** :zap: handling local action ([da109a2](https://github.com/wrappid/core/commit/da109a281dad3ff3b37482d36b6fdac6ea49c5e7))
+
 ### [0.0.575](https://github.com/wrappid/core/compare/v0.0.574...v0.0.575) (2024-11-06)
 
 
