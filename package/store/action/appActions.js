@@ -10,9 +10,9 @@ import AppService from "../../service/AppService";
 import { getForm } from "../../utils/formUtils";
 import {
   CLEAR_SNACK_MESSAGE,
-  REMOVE_SNACK_MESSAGE,
   MESSAGE_SHOWED,
   PUSH_SNACK_MESSAGE,
+  REMOVE_SNACK_MESSAGE,
   RESET_LOADING,
   RESET_PROGRESS_BAR,
   SET_LOADING,
@@ -116,12 +116,18 @@ export const apiRequestAction =
                 });
               }
 
-              if (localAction) {
+              /**
+               * Handling Local Action Type and Function
+               */
+              if (typeof localAction === "string") {
                 dispatch({
                   payload: { ...reduxData, ...data },
                   type   : localAction,
                 });
+              }else if(typeof localAction === "function"){
+                localAction(response?.data);
               }
+
               if (typeof successType === "string") {
                 dispatch({
                   payload: { ...reduxData, ...response.data },
