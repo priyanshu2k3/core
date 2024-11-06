@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.575](https://github.com/wrappid/core/compare/v0.0.574...v0.0.575) (2024-11-06)
+
+
+### Features
+
+* **core:** :fire: component DatePicker supports minDateFunc and maxDateFunc and special values ([f58dd48](https://github.com/wrappid/core/commit/f58dd48c0a6b8dc9fdc2e80fb122bda0ac7f4512))
+
+
+### Bug Fixes
+
+* **core:** :art: core input consistency and linting fix ([507d1f0](https://github.com/wrappid/core/commit/507d1f017a526271252cea136d567c2c55e20b30))
+
 ### [0.0.574](https://github.com/wrappid/core/compare/v0.0.573...v0.0.574) (2024-11-05)
 
 
