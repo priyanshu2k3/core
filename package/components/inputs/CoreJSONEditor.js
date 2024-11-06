@@ -14,7 +14,7 @@ export default function CoreJSONEditor(props) {
   
   return (
     <CoreBox>
-      <NativeJSONEditor {...props} />;
+      <NativeJSONEditor {...props} />
 
       {helperText && (
         <CoreFormHelperText styleClasses={[CoreClasses.LAYOUT.NO_MARGIN_P]}>
