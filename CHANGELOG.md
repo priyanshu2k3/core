@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.579](https://github.com/wrappid/core/compare/v0.0.578...v0.0.579) (2024-11-08)
+
+
+### Bug Fixes
+
+* **core:** :fire: content container fix provided ([e128cdf](https://github.com/wrappid/core/commit/e128cdf758351654573124a9f4a7f6453d5e3de8))
+* **core:** :zap: linting fix ([c7b5684](https://github.com/wrappid/core/commit/c7b5684fa98b106e6808477a7dfba3ed221905f5))
+
 ### [0.0.578](https://github.com/wrappid/core/compare/v0.0.577...v0.0.578) (2024-11-08)
 
 
