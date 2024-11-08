@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.578](https://github.com/wrappid/core/compare/v0.0.577...v0.0.578) (2024-11-08)
+
+
+### Bug Fixes
+
+* **core:** :fire: core container fix ([5786fe9](https://github.com/wrappid/core/commit/5786fe9daf04454c0b2c6b4c4150973536e0c0a0))
+* **core:** :fire: core data table specific form and otp input fix ([661dc6a](https://github.com/wrappid/core/commit/661dc6aadebc3f3d6b702484fcbd6be571480115))
+* **core:** :fire: verified icons padding removal ([c1cac71](https://github.com/wrappid/core/commit/c1cac7190a15b57dd8ec17d903a0585197ad4afe))
+* **core:** :zap: data table form data manipulation hook ([17341c7](https://github.com/wrappid/core/commit/17341c71c01b2a091e6f209b80b618ba827344e4))
+* **core:** :zap: otp related issues and component specific issues ([9fb20e9](https://github.com/wrappid/core/commit/9fb20e992ad2d6f43eb0be005dc7892cce0e6550))
+
 ### [0.0.577](https://github.com/wrappid/core/compare/v0.0.576...v0.0.577) (2024-11-08)
 
 
