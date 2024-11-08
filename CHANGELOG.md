@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.577](https://github.com/wrappid/core/compare/v0.0.576...v0.0.577) (2024-11-08)
+
+
+### Features
+
+* **global:** :sparkles: add dimension component ([34f1a20](https://github.com/wrappid/core/commit/34f1a20f4afd83073f04683b84c0a7ece47f418a)), closes [#417](https://github.com/wrappid/core/issues/417)
+
 ### [0.0.576](https://github.com/wrappid/core/compare/v0.0.575...v0.0.576) (2024-11-06)
 
 
