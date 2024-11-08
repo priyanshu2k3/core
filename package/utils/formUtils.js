@@ -2,15 +2,13 @@
 import { WrappidData } from "@wrappid/styles";
 import * as yup from "yup";
 
-import { defaultValidations } from "./componentDefaultValidations";
-import { FORM_DATA_TABLE_FUNCTION_MAP } from "./formDataTableFunctionMap";
-import { queryBuilder } from "./helper";
 import CoreTypographyBody1 from "../components/dataDisplay/CoreTypographyBody1";
 import CoreInput from "../components/inputs/CoreInput";
 import {
   FORM_LG_DEFAULT_GRID_SIZE,
   FORM_MD_DEFAULT_GRID_SIZE,
   FORM_SM_DEFAULT_GRID_SIZE,
+  FORM_VIEW_MODE,
   FORM_XL_DEFAULT_GRID_SIZE,
   FORM_XS_DEFAULT_GRID_SIZE,
   INPUT_TYPE
@@ -33,6 +31,9 @@ import {
 } from "../store/types/dataManagementTypes";
 import { SET_PENDING_REQUESTS } from "../store/types/pendingRequestTypes";
 import CoreClasses from "../styles/CoreClasses";
+import { defaultValidations } from "./componentDefaultValidations";
+import { FORM_DATA_TABLE_FUNCTION_MAP } from "./formDataTableFunctionMap";
+import { queryBuilder } from "./helper";
 
 export function getFormikRequiredMessage(name = "", isShort = false) {
   let message = "";
@@ -441,6 +442,11 @@ export function createFormFieldProps(props, type) {
         value        : formikprops?.values ? formikprops?.values[element?.id] : "",
         ...(initProps[element?.id] || {}),
       };
+
+      if (mode === FORM_VIEW_MODE) {
+        _props.shrink = true;
+        _props.InputLabelProps = { ..._props.InputLabelProps, shrink: true };
+      }
 
       if (element?.autoComplete) {
         _props.autoComplete = element?.autoComplete;

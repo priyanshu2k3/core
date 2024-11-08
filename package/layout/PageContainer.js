@@ -177,7 +177,7 @@ export default function PageContainer(props) {
   }, [snackMessages, dispatch]);
 
   return sessionExpired && !uid && route?.authRequired ? (
-    <CoreDomNavigate to="login/check" replace={true} />
+    <CoreDomNavigate to="/login/check" replace={true} />
   ) : (
     <>
       {/* <CoreThemeProvider themeID={pageTheme()}> */}

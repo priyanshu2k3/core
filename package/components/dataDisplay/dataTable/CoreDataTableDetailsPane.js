@@ -195,8 +195,8 @@ export default function CoreDataTableDetailsPane(props) {
             )
           }
         />
-
-        {config?.wrappid?.platform === APP_PLATFORM && <CoreDivider />}
+        
+        <CoreDivider />
 
         <CoreCardContent>
           {detailedRowData && Object.keys(detailedRowData).length > 0 ? (
@@ -240,8 +240,6 @@ export default function CoreDataTableDetailsPane(props) {
               !hideForm &&
               !hideUpdateForm && (
                   <>
-                    <CoreDivider />
-
                     <CoreForm
                       apiMode={updateFormAPIMode}
                       onMountRead={false}
@@ -315,8 +313,6 @@ export default function CoreDataTableDetailsPane(props) {
              */}
               {postRenderDetailsPaneComponent && (
                 <>
-                  <CoreDivider />
-
                   {React.createElement(postRenderDetailsPaneComponent, { data: detailedRowData })}
                 </>
               )}

@@ -21,6 +21,7 @@ import CoreBox from "../layouts/CoreBox";
 export default function CoreOtpInput(props) {
   const dispatch = useDispatch();
   const { sendOtpLoading } = useSelector((state) => state?.app);
+  const { userID } = useSelector((state) => state?.auth);
   let { config: appConfig } = React.useContext(WrappidDataContext);
 
   useEffect(() => {
@@ -33,6 +34,10 @@ export default function CoreOtpInput(props) {
         // eslint-disable-next-line etc/no-commented-out-code
         // let data = { data: props.to, service: props.editId };
         let data = { identifier: props.to, service: props.query };
+        
+        if (userID) {
+          data = { ...data, userID };
+        }
 
         dispatch(
           apiRequestAction(

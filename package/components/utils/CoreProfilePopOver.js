@@ -5,38 +5,35 @@ import React from "react";
 import { nativeUseNavigate } from "@wrappid/native";
 import { useSelector } from "react-redux";
 
-import CoreApiVersion from "./CoreApiVersion";
-import CoreAppVersion from "./CoreAppVersion";
 import CoreClasses from "../../styles/CoreClasses";
 import CoreAvatar from "../dataDisplay/CoreAvatar";
 import CoreDivider from "../dataDisplay/CoreDivider";
 import CoreEmailLink from "../dataDisplay/CoreEmailLink";
 import { __IconTypes } from "../dataDisplay/CoreIcon";
 import CorePhoneLink from "../dataDisplay/CorePhoneLink";
-import CoreTypographyBody2 from "../dataDisplay/CoreTypographyBody2";
-import CoreTypographyCaption from "../dataDisplay/CoreTypographyCaption";
 import CoreButton from "../inputs/CoreButton";
 import CoreBox from "../layouts/CoreBox";
-import CoreGrid from "../layouts/CoreGrid";
 import CoreStack from "../layouts/CoreStack";
 import CoreMenu from "../navigation/CoreMenu";
+import CoreCard from "../surfaces/CoreCard";
+import CoreCardHeader from "../surfaces/CoreCardHeader";
+import CoreApiVersion from "./CoreApiVersion";
+import CoreAppVersion from "./CoreAppVersion";
 
 export default function CoreProfilePopOver(props) {
   // eslint-disable-next-line no-console
   // console.log(props);
   const navigate = nativeUseNavigate();
-  const auth = useSelector((state) => state?.auth || {});
-
-  const { profileRegistration } = useSelector((state) => state?.api);
+  const { user } = useSelector((state) => state?.auth || {});
 
   const {
-    name = "Unknown User",
-    photo = null,
-    email = "",
+    name = null,
+    photoUrl: photo = null,
+    email = null,
     emailVerified = false,
-    phone = "",
+    phone = null,
     phoneVerified = false,
-  } = auth || {};
+  } = user || {};
   const { onClose } = props;
   const profileCardMenu = [
     {
@@ -70,7 +67,35 @@ export default function CoreProfilePopOver(props) {
 
   return (
     <CoreBox styleClasses={[CoreClasses.LAYOUT.POPOVER]}>
-      <CoreGrid
+      <CoreCard>
+        <CoreCardHeader
+          avatar={
+            photo ? (
+              <CoreAvatar
+                gridProps={{ gridSize: { md: 4, sm: 3, xs: 3 } }}
+                styleClasses={[CoreClasses.DATA_DISPLAY.AVATAR_MEDIUM]}
+                src={photo}
+              />
+            ) : (
+              <CoreAvatar
+                gridProps={{ gridSize: { md: 4, sm: 3, xs: 3 } }}
+                styleClasses={[CoreClasses.DATA_DISPLAY.AVATAR_MEDIUM]}
+              >{(name || "Unknown User").at(0)}</CoreAvatar>
+            ) 
+          }
+          title={name || "Unknown User"}
+          subheader={
+            <>              
+              <CoreEmailLink email={email} verified={emailVerified} limitChars={15} />
+
+              <CorePhoneLink phone={phone} verified={phoneVerified} limitChars={15} />
+            </>
+          }
+        />
+      </CoreCard>
+
+      {/* eslint-disable-next-line etc/no-commented-out-code */}
+      {/* <CoreGrid
         styleClasses={[
           CoreClasses.PADDING.P1,
           CoreClasses.ALIGNMENT.JUSTIFY_CONTENT_CENTER,
@@ -89,12 +114,11 @@ export default function CoreProfilePopOver(props) {
           gridProps={{ gridSize: 8 }}
           // styleClasses={[CoreClasses.ALIGNMENT.JUSTIFY_CONTENT_CENTER]}
         >
-          {/* <CoreGrid> */}
-          <CoreTypographyBody2 /* hideSeeMore={true} limitChars={30} */>
+          <CoreTypographyBody2>
             {name}
           </CoreTypographyBody2>
 
-          <CoreTypographyCaption /* hideSeeMore={true} limitChars={30} */>
+          <CoreTypographyCaption>
             {profileRegistration?.degree}
           </CoreTypographyCaption>
 
@@ -106,7 +130,7 @@ export default function CoreProfilePopOver(props) {
             <CorePhoneLink phone={phone} verified={phoneVerified} limitChars={15} />
           </CoreBox>
         </CoreBox>
-      </CoreGrid>
+      </CoreGrid> */}
 
       <CoreDivider /* styleClasses={[CoreClasses.MARGIN.MB4]} */ />
 

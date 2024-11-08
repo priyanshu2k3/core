@@ -36,7 +36,6 @@ export default function CoreEmailLink(props) {
             </CoreLink>
           ) : (
             <CoreIconText
-              styleClasses={[CoreClasses?.NAVIGATION?.PHONE_EMAIL_LINK]}
               href={`mailto:${email}`}
               limitChars={limitChars}
               hideSeeMore={true}
