@@ -35,6 +35,7 @@ export default function CoreDataTableDetailsPane(props) {
     tableUUID,
     createFormID,
     updateFormID,
+    updateForm_restruct,
     hideForm,
     hideCreateForm,
     hideUpdateForm,
@@ -247,7 +248,7 @@ export default function CoreDataTableDetailsPane(props) {
                       mode={formMode}
                       allowEdit={editable}
                       allowDelete={deletable}
-                      initData={detailedRowData}
+                      initData={updateForm_restruct ? updateForm_restruct(detailedRowData) : detailedRowData}
                       afterCancel={() => {
                         if (
                           afterEditCancel &&

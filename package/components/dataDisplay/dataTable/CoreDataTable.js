@@ -173,6 +173,7 @@ export default function CoreDataTable(props) {
     formMode: formModeProps = FORM_VIEW_MODE,
     createFormID = null,
     updateFormID = null,
+    updateForm_restruct = null,
     // table props
     tableHeadProps,
     afterEditSuccess, // function to be called after successfull Edit
@@ -709,7 +710,7 @@ export default function CoreDataTable(props) {
   return (
     <CoreGrid
       coreId="sam-data-table-container"
-      spacing={platform === APP_PLATFORM && 0}
+      spacing={platform === APP_PLATFORM ? 0 : ""}
       // styleClasses={[CoreClasses.DATA_TABLE.DATA_TABLE_CONTAINER]}
     >
       {(window.innerWidth >= MEDIUM_WINDOW_WIDTH || !_showDetailsPane) &&
@@ -877,6 +878,7 @@ export default function CoreDataTable(props) {
           tableUUID={tableUUID}
           createFormID={detailsPaneCreateFormID}
           updateFormID={detailsPaneUpdateFormID}
+          updateForm_restruct={updateForm_restruct}
           hideForm={hideForm}
           hideCreateForm={hideCreateForm}
           hideUpdateForm={hideUpdateForm}
