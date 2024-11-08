@@ -42,6 +42,7 @@ export default class DefaultCoreStyles extends BaseStyle {
 
       contentContainer: {
         ...this.defaultUtilityStyles.w100,
+        // eslint-disable-next-line etc/no-commented-out-code
         // ...this.defaultUtilityStyles.overflowYAuto,
         // ...this.defaultUtilityStyles.mxN1,
         ...this.defaultUtilityStyles.pt1,
