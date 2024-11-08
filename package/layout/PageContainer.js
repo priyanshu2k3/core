@@ -26,8 +26,6 @@ import DevelopmentInfo from "../development/DevelopmentInfo";
 import { CoreDomNavigate } from "../helper/routerHelper";
 import ErrorBoundary from "../middleware/ErrorBoundary";
 import { clearSnackMessages, messageShowed, removeSnackMessage } from "../store/action/appActions";
-import { RESET_LOADING } from "../store/types/appTypes";
-import { SAVE_EXPIRED_SESSION, SESSION_RECALLED } from "../store/types/authTypes";
 import { RESET_FROM_STATE, UPDATE_HELPER_FLAG } from "../store/types/formTypes";
 import CoreClasses from "../styles/CoreClasses";
 // eslint-disable-next-line import/order
@@ -85,25 +83,27 @@ export default function PageContainer(props) {
   }, [sessionExpired]);
 
   React.useEffect(() => {
-    if (sessionExpired && !sessionDetail) {
-      dispatch({
-        payload: {
-          location,
-          userId: uid,
-        },
-        type: SAVE_EXPIRED_SESSION,
-      });
-      dispatch({ type: RESET_LOADING });
-    }
+    // eslint-disable-next-line etc/no-commented-out-code
+    // if (sessionExpired && !sessionDetail) {
+    //   dispatch({
+    //     payload: {
+    //       location,
+    //       userId: uid,
+    //     },
+    //     type: SAVE_EXPIRED_SESSION,
+    //   });
+    //   dispatch({ type: RESET_LOADING });
+    // }
 
-    if (
-      sessionExpired &&
-      sessionDetail &&
-      uid &&
-      location.pathname === sessionDetail?.location?.pathname
-    ) {
-      dispatch({ type: SESSION_RECALLED });
-    }
+    // eslint-disable-next-line etc/no-commented-out-code
+    // if (
+    //   sessionExpired &&
+    //   sessionDetail &&
+    //   uid &&
+    //   location.pathname === sessionDetail?.location?.pathname
+    // ) {
+    //   dispatch({ type: SESSION_RECALLED });
+    // }
   }, []);
 
   React.useEffect(() => {

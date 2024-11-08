@@ -21,7 +21,7 @@ import CoreBox from "../layouts/CoreBox";
 export default function CoreOtpInput(props) {
   const dispatch = useDispatch();
   const { sendOtpLoading } = useSelector((state) => state?.app);
-  const { userID } = useSelector((state) => state?.auth);
+  const { userID, accessToken } = useSelector((state) => state?.auth);
   let { config: appConfig } = React.useContext(WrappidDataContext);
 
   useEffect(() => {
@@ -38,26 +38,28 @@ export default function CoreOtpInput(props) {
         if (userID) {
           data = { ...data, userID };
         }
-
-        dispatch(
-          apiRequestAction(
-            HTTP.POST,
-            SENT_OTP_API,
-            true,
-            data,
-            SEND_OTP_SUCCESS,
-            SEND_OTP_ERROR,
-            null, //localAction,
-            null, //includeFile,
-            null, //file,
-            null, //formId,
-            null, //reload,
-            null, //reduxData,
-            null, //pushSnack,
-            SEND_OTP_LOADING, //loadingType,
-            null //resetLoadingType,
-          )
-        );
+        
+        if (!accessToken) {
+          dispatch(
+            apiRequestAction(
+              HTTP.POST,
+              SENT_OTP_API,
+              true,
+              data,
+              SEND_OTP_SUCCESS,
+              SEND_OTP_ERROR,
+              null, //localAction,
+              null, //includeFile,
+              null, //file,
+              null, //formId,
+              null, //reload,
+              null, //reduxData,
+              null, //pushSnack,
+              SEND_OTP_LOADING, //loadingType,
+              null //resetLoadingType,
+            )
+          );
+        }
       } else {
         // -- console.log("Not sending otp");
       }
