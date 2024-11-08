@@ -60,7 +60,7 @@ export default function PageContainer(props) {
   validationsRegistry = React.useContext(ValidationsRegistryContext);
 
   // -- console.log("mergedComponentRegistry", mergedComponentRegistry, mergedResourceRegistry);
-  const { uid, sessionExpired, sessionDetail } = useSelector((state) => state?.auth || {});
+  const { uid, sessionExpired /* sessionDetail */ } = useSelector((state) => state?.auth || {});
   const snackMessages  = useSelector((state) => state?.app?.snackMessages || []);
   const appState = useSelector((state) => state?.app || []);
 
