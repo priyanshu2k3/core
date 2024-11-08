@@ -276,12 +276,14 @@ export default class DefaultCoreStyles extends BaseStyle {
       ucImg          : { width: "50%" + IMPORTANT },
       verifiedSuccess: {
         ...this.defaultUtilityStyles.textSuccessDark,
-        ...this.defaultUtilityStyles.pl1,
+        // eslint-disable-next-line etc/no-commented-out-code
+        // ...this.defaultUtilityStyles.pl1,
         fontSize: "0.9rem" + IMPORTANT,
       },
       verifiedWarning: {
         ...this.defaultUtilityStyles.textWarningDark,
-        ...this.defaultUtilityStyles.pl1,
+        // eslint-disable-next-line etc/no-commented-out-code
+        // ...this.defaultUtilityStyles.pl1,
         fontSize: "0.9rem" + IMPORTANT,
       },
       /**
