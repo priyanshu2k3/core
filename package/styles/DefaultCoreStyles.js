@@ -6,7 +6,7 @@ import { BaseStyle, DEFAULT_PADDING, DefaultUtilityStyles, IMPORTANT, PX_TAG } f
 /**
  * @todo: have to calculate manually nav height varying depending on screen size
  */
-const HEADING_TOP_MARGIN = "64px";
+const HEADING_TOP_MARGIN = "56px";
 
 export const DEFAULT_SPACING = 1;
 
@@ -42,8 +42,9 @@ export default class DefaultCoreStyles extends BaseStyle {
 
       contentContainer: {
         ...this.defaultUtilityStyles.w100,
-        ...this.defaultUtilityStyles.overflowYAuto,
-        ...this.defaultUtilityStyles.mxN1,
+        // ...this.defaultUtilityStyles.overflowYAuto,
+        // ...this.defaultUtilityStyles.mxN1,
+        ...this.defaultUtilityStyles.pt1,
         marginTop: HEADING_TOP_MARGIN + IMPORTANT,
       },
 
