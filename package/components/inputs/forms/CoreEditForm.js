@@ -56,19 +56,23 @@ export default function CoreEditForm(props) {
         innerRef={formRef}
       >
         {(formikprops) => (
-          <CoreFormContainer onSubmit={formikprops.handleSubmit}>
-            <CoreGrid coreId="coreEditForm">
+          <CoreFormContainer
+            key={`cfc-${formId}`}
+            onSubmit={formikprops.handleSubmit}>
+            <CoreGrid
+              key={`cfc-grid-${formId}`}
+              coreId="coreEditForm">
               {/* Showing Form Elements */}
               {forms[formId]?.formElements?.map((element, elementIndex) =>
                 formDataReadLoading && formDataReadLoading[formId] ? (
                   <CoreSkeleton
+                    key={`cfc-item-skel-${formId}-${elementIndex}`}
                     {...createFieldSkeletonProps(element)}
-                    key={`core-skeleton-${formId}-${elementIndex}`}
                   />
                 ) : (
                   <CoreFormInputs
+                    key={`cf-input-${formId}-${elementIndex}`}
                     gridProps={{ gridSize: getGridSizeProps(element?.gridSize, true) }}
-                    key={"form-input-" + elementIndex}
                     type={INPUT_TYPE}
                     forms={forms}
                     formId={formId}
@@ -92,7 +96,7 @@ export default function CoreEditForm(props) {
               {/* Showing Action Elements. Inline actions are written on input components */}
               {mode && forms[formId] && !forms[formId].inlineAction ? (
                 <CoreFormInputs
-                  key={"form-actions"}
+                  key={`cf-action-input-${formId}`}
                   type={BUTTON_TYPE}
                   formId={formId}
                   element={null}
