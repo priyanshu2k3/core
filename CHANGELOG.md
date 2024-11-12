@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.580](https://github.com/wrappid/core/compare/v0.0.579...v0.0.580) (2024-11-12)
+
+
+### Bug Fixes
+
+* **core:** :art: sanity fix ([fba35c7](https://github.com/wrappid/core/commit/fba35c7f0f72fcaa28c2022d472a4e40850ba49c))
+* **core:** :bug: core form id attachment ([080710b](https://github.com/wrappid/core/commit/080710b738e40abc1f2ab5657d0bcdefe2880e20))
+
 ### [0.0.579](https://github.com/wrappid/core/compare/v0.0.578...v0.0.579) (2024-11-08)
 
 
