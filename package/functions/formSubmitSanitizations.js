@@ -31,7 +31,7 @@ function SanBasicEditUrlChange(formData, apiMeta, state/* , others */) {
     formData.departmentId = formData.departmentId.id;
   }
   return {
-    endpoint: apiMeta.endpoint.replace(":id", state?.profile?.basic?.id),
+    endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.personID),
     values  : formData,
   };
 }
@@ -41,7 +41,7 @@ function SanClinicAddUrlChange(formData, apiMeta, state/* , others */) {
     (addrType) => addrType.type.toLowerCase() === "clinic"
   )?.id;
   return {
-    endpoint: apiMeta.endpoint.replace(":id", state?.profile?.basic?.id),
+    endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.personID),
     values  : formData,
   };
 }
@@ -62,7 +62,7 @@ function SanClinicDeleteUrlChange(formData, apiMeta, state, others) {
 
 function SanClinicReadUrlChange(formData, apiMeta, state/* , others */) {
   return {
-    endpoint: apiMeta.endpoint.replace(":id", state?.profile?.basic?.id),
+    endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.personID),
     values  : formData,
   };
 }
@@ -99,7 +99,7 @@ function SanCoreFormCancelFormId(formData, apiMeta, state, others) {
 //PROFILE EDUCATION SANITIZATION FUNCTIONS
 function SanEducationAddUrlChange(formData, apiMeta, state/* , others */) {
   return {
-    endpoint: apiMeta.endpoint.replace(":id", state?.profile?.basic?.id),
+    endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.personID),
     values  : formData,
   };
 }
@@ -113,7 +113,7 @@ function SanEducationEditUrlChange(formData, apiMeta, state, others) {
 
 function SanEducationReadUrlChange(formData, apiMeta, state/* , others */) {
   return {
-    endpoint: apiMeta.endpoint.replace(":id", state?.profile?.basic?.id),
+    endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.personID),
     values  : formData,
   };
 }
@@ -137,7 +137,7 @@ function SanProfileEducationRead(data) {
 //PROFILE EXP SANITIZATION FUNCTIONS
 function SanExperienceAddUrlChange(formData, apiMeta, state/* , others */) {
   return {
-    endpoint: apiMeta.endpoint.replace(":id", state?.profile?.basic?.id),
+    endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.personID),
     values  : formData,
   };
 }
@@ -151,7 +151,7 @@ function SanExperienceEditUrlChange(formData, apiMeta, state, others) {
 
 function SanExperienceReadUrlChange(formData, apiMeta, state/* , others */) {
   return {
-    endpoint: apiMeta.endpoint.replace(":id", state?.profile?.basic?.id),
+    endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.personID),
     values  : formData,
   };
 }
@@ -230,7 +230,7 @@ function SanPrescription(formData, apiMeta, state, others) {
     data["id"] = prescriptionInStore.id;
   }
 
-  data["doctorId"] = state?.profile?.basic?.id;
+  data["doctorId"] = state?.auth?.user?.personID;
   data["patientId"] = state?.prescription?.navData?.Person?.id;
   data["clinicId"] = state?.prescription?.clinic?.Clinic?.id;
 
@@ -331,7 +331,7 @@ function SanContactsRead(data) {
 
 function SanContactsReadUrlChange(formData, apiMeta, state/* , others */) {
   return {
-    endpoint : apiMeta.endpoint + "&personId=" + state.profile.basic.id,
+    endpoint : apiMeta.endpoint + "&personId=" + state?.auth?.personId,
     reduxData: apiMeta.reduxData,
     values   : apiMeta.values,
   };
@@ -434,7 +434,7 @@ function SanCreateAppointment(formData, apiMeta, state/* , others */) {
         Number(formData?.clinicId?.Clinic?.id) === 0
           ? null
           : Number(formData?.clinicId?.Clinic?.id),
-      doctorId : state?.profile?.basic?.id,
+      doctorId : state?.auth?.user?.personID,
       patientId: state?.prescription?.navData?.Person?.id,
     },
   };
@@ -453,7 +453,7 @@ function SanEditAppointment(form, apiMeta, state/* , others */) {
           ? null
           : Number(formData?.clinicId?.Clinic?.id),
       date     : formData.date,
-      doctorId : state?.profile?.basic?.id,
+      doctorId : state?.auth?.user?.personID,
       endTime  : formData.endTime,
       patientId: formData["Patient.id"],
       startTime: formData.startTime,
