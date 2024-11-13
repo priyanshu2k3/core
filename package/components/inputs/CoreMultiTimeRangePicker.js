@@ -2,8 +2,6 @@
 // eslint-disable-next-line unused-imports/no-unused-imports, no-unused-vars
 import React from "react";
 
-import moment from "moment";
-
 import CoreFormErrorText from "./CoreFormErrorText";
 import CoreFormHelperText from "./CoreFormHelperText";
 import CoreIconButton from "./CoreIconButton";
@@ -23,7 +21,7 @@ export default function CoreMultiTimeRangePicker(props) {
     {
       endTime  : null,
       startTime: null,
-    },
+    }
   ]);
 
   // -- console.log("Timeranges", timeRanges, value);
@@ -58,7 +56,23 @@ export default function CoreMultiTimeRangePicker(props) {
     formik.setFieldValue(props.id, x);
   };
 
-  // -- console.log("END VALUE", id, spValue, value);
+  const convertToMuiTimePickerValue = (timeStr) => {
+    if (typeof timeStr !== "string") {
+      return timeStr;
+    }
+    // Create a new date object for today
+    const date = new Date();
+    
+    // Parse the time string
+    const [hours, minutes, seconds] = timeStr.split(":").map(Number);
+    
+    // Set the time components
+    date.setHours(hours);
+    date.setMinutes(minutes);
+    date.setSeconds(seconds || 0);
+    
+    return date;
+  };
 
   return (
     <CoreBox>
@@ -73,7 +87,7 @@ export default function CoreMultiTimeRangePicker(props) {
               label={props.startTimeLabel ? props.startTimeLabel : "Start Time"}
               inputFormat={props.ampm ? "hh:mm" : "HH:MM"}
               ampm={props.ampm ? true : false}
-              value={timeRange.startTime ? moment(timeRange.startTime) : null}
+              value={timeRange.startTime ? convertToMuiTimePickerValue(timeRange.startTime) : null}
               onChange={(v) => {
                 _handleChange(index, v, "startTime");
               }}
@@ -85,7 +99,7 @@ export default function CoreMultiTimeRangePicker(props) {
               label={props.endTimeLabel ? props.endTimeLabel : "End Time"}
               inputFormat={props.ampm ? "hh:mm" : "HH:MM"}
               ampm={props.ampm ? true : false}
-              value={timeRange.endTime ? moment(timeRange.endTime) : null}
+              value={timeRange.endTime ? convertToMuiTimePickerValue(timeRange.endTime) : null}
               onChange={(v) => {
                 _handleChange(index, v, "endTime");
               }}

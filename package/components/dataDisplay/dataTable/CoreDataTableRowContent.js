@@ -172,7 +172,11 @@ export default function CoreDataTableRowContent(props) {
     return (
       <>
         {hasId ? (
-          <CoreDivider orientation="vertical" variant="middle" flexItem />
+          <CoreDivider
+            styleClasses={[UtilityClasses.MARGIN.MY0]}
+            orientation="vertical"
+            variant="middle"
+            flexItem />
         ) : (
           ""
         )}

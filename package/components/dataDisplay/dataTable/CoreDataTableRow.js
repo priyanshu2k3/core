@@ -2,13 +2,14 @@
 import React, { useContext } from "react";
 
 // eslint-disable-next-line import/no-unresolved
-import { UtilityClasses, ThemeContext } from "@wrappid/styles";
+import { ThemeContext, UtilityClasses } from "@wrappid/styles";
 import { useDispatch } from "react-redux";
 
 import CoreDataTableRowContent from "./CoreDataTableRowContent";
 import CoreFlatList from "./CoreFlatList";
 // eslint-disable-next-line import/no-unresolved
 import { UPDATE_QUERY_PAGE_DATA } from "../../../store/types/dataManagementTypes";
+import CoreClasses from "../../../styles/CoreClasses";
 import { getLabel } from "../../../utils/stringUtils";
 import CoreCheckbox from "../../inputs/CoreCheckbox";
 import CoreTextButton from "../../inputs/CoreTextButton";
@@ -93,6 +94,16 @@ export default function CoreDataTableRow(props) {
 
         {/* Table Row Data */}
         <CoreTableRow
+          styleClasses={[
+            ...(
+              enableDetailsPane &&
+              _showDetailsPane &&
+              detailedRowId === rowData.id
+                ? [CoreClasses.BORDER.BORDER_LEFT, CoreClasses.BORDER.BORDER_PRIMARY]
+                : []
+            ),
+            CoreClasses.CURSOR.CURSOR_POINTER
+          ]}
           sx={{
             borderLeft: enableDetailsPane &&
             _showDetailsPane &&

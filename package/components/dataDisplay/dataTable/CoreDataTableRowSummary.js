@@ -5,11 +5,12 @@ import React from "react";
 import { UtilityClasses } from "@wrappid/styles";
 
 import { DATA_TABLE_CONST } from "../../../config/dataTableConstants";
+import CoreClasses from "../../../styles/CoreClasses";
 import CoreStack from "../../layouts/CoreStack";
 import CoreCardHeader from "../../surfaces/CoreCardHeader";
 import CoreDivider from "../CoreDivider";
-import CoreTypographyBody2 from "../CoreTypographyBody2";
 import CoreTypographyCaption from "../CoreTypographyCaption";
+import CoreTypographySubtitle1 from "../CoreTypographySubtitle1";
 import CoreTypographySubtitle2 from "../CoreTypographySubtitle2";
 
 export default function CoreDataTableRowSummary(props) {
@@ -33,6 +34,7 @@ export default function CoreDataTableRowSummary(props) {
   const getTitleComponent = () => {
     return priority1Data ? (
       <CoreTypographySubtitle2
+        styleClasses={[CoreClasses.MARGIN.MB0]}
         limitChars={DATA_TABLE_CONST.TABLE_CELL_MAX_CHARS}
         hideSeeMore={true}
       >
@@ -47,12 +49,13 @@ export default function CoreDataTableRowSummary(props) {
     return (
       <>
         {priority2Data ? (
-          <CoreTypographyBody2
+          <CoreTypographySubtitle1
+            styleClasses={[CoreClasses.MARGIN.MB0]}
             limitChars={DATA_TABLE_CONST.TABLE_CELL_MAX_CHARS}
             hideSeeMore={true}
           >
             {priority2Data.data}
-          </CoreTypographyBody2>
+          </CoreTypographySubtitle1>
         ) : (
           ""
         )}

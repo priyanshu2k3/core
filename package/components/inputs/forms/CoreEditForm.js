@@ -64,33 +64,35 @@ export default function CoreEditForm(props) {
               coreId="coreEditForm">
               {/* Showing Form Elements */}
               {forms[formId]?.formElements?.map((element, elementIndex) =>
-                formDataReadLoading && formDataReadLoading[formId] ? (
-                  <CoreSkeleton
-                    key={`cfc-item-skel-${formId}-${elementIndex}`}
-                    {...createFieldSkeletonProps(element)}
-                  />
-                ) : (
-                  <CoreFormInputs
-                    key={`cf-input-${formId}-${elementIndex}`}
-                    gridProps={{ gridSize: getGridSizeProps(element?.gridSize, true) }}
-                    type={INPUT_TYPE}
-                    forms={forms}
-                    formId={formId}
-                    element={element}
-                    formikprops={formikprops}
-                    initProps={initProps}
-                    preview={preview}
-                    handleButtonCLick={handleButtonCLick}
-                    submitLoading={submitLoading}
-                    submitSuccess={submitSuccess}
-                    OnEditClick={OnEditClick}
-                    editFormId={editFormId}
-                    allowEdit={allowEdit}
-                    onFormFocus={onFormFocus}
-                    OnCancelClick={OnCancelClick}
-                    mode={mode}
-                  /> 
-                )
+                (!element?.status || element?.status === "active") ? (
+                  formDataReadLoading && formDataReadLoading[formId] ? (
+                    <CoreSkeleton
+                      key={`cfc-item-skel-${formId}-${elementIndex}`}
+                      {...createFieldSkeletonProps(element)}
+                    />
+                  ) : (
+                    <CoreFormInputs
+                      key={`cf-input-${formId}-${elementIndex}`}
+                      gridProps={{ gridSize: getGridSizeProps(element?.gridSize, true) }}
+                      type={INPUT_TYPE}
+                      forms={forms}
+                      formId={formId}
+                      element={element}
+                      formikprops={formikprops}
+                      initProps={initProps}
+                      preview={preview}
+                      handleButtonCLick={handleButtonCLick}
+                      submitLoading={submitLoading}
+                      submitSuccess={submitSuccess}
+                      OnEditClick={OnEditClick}
+                      editFormId={editFormId}
+                      allowEdit={allowEdit}
+                      onFormFocus={onFormFocus}
+                      OnCancelClick={OnCancelClick}
+                      mode={mode}
+                    /> 
+                  )
+                ) : null 
               )}
 
               {/* Showing Action Elements. Inline actions are written on input components */}
