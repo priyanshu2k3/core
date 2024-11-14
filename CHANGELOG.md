@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.581](https://github.com/wrappid/core/compare/v0.0.580...v0.0.581) (2024-11-14)
+
+
+### Bug Fixes
+
+* **core:** :adhesive_bandage: datatable and time picker fix ([ffab293](https://github.com/wrappid/core/commit/ffab293c6ae1b9a34a5675be2cd0139d34c1dbfe))
+* **global:** :bug: some border style property name changed, update this to resolve style changes ([bebc385](https://github.com/wrappid/core/commit/bebc385bece5fb45ca264981ca83dbd34d5ade77))
+
 ### [0.0.580](https://github.com/wrappid/core/compare/v0.0.579...v0.0.580) (2024-11-12)
 
 
