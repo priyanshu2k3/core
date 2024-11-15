@@ -21,7 +21,7 @@ import CoreBox from "../layouts/CoreBox";
 export default function CoreOtpInput(props) {
   const dispatch = useDispatch();
   const { sendOtpLoading } = useSelector((state) => state?.app);
-  const { userID, accessToken } = useSelector((state) => state?.auth);
+  const { navData: { userID }, accessToken } = useSelector((state) => state?.auth);
   let { config: appConfig } = React.useContext(WrappidDataContext);
 
   useEffect(() => {

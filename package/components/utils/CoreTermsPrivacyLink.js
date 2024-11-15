@@ -11,7 +11,10 @@ import CoreLink from "../navigation/CoreLink";
 
 export default function CoreTermsPrivacyLink() {
   const { config } = React.useContext(WrappidDataContext);
-  const { uid } = useSelector(state=>state?.auth || {});
+  
+  const auth = useSelector(state => state.auth);
+  const { accessToken } = auth;
+  let authenticated = accessToken ? true : false;
 
   return (
     <CoreBox
@@ -24,12 +27,12 @@ export default function CoreTermsPrivacyLink() {
       >Help</CoreLink>
 
       <CoreLink
-        styleClasses={uid ? [] : [CoreClasses?.COLOR?.TEXT_WHITE]}
+        styleClasses={authenticated ? [] : [CoreClasses?.COLOR?.TEXT_WHITE]}
         href={config?.wrappid?.privacyLink}
       >Privacy</CoreLink>
 
       <CoreLink
-        styleClasses={uid
+        styleClasses={authenticated
           ? [CoreClasses?.MARGIN?.ML1]
           : [CoreClasses?.MARGIN?.ML1, CoreClasses?.COLOR?.TEXT_WHITE]
         }

@@ -1,9 +1,8 @@
 /* eslint-disable id-length */
-import React, { useState } from "react";
+import React from "react";
 
 // eslint-disable-next-line import/no-unresolved
 import { WEB_PLATFORM } from "@wrappid/core";
-// eslint-disable-next-line import/no-unresolved
 // eslint-disable-next-line import/no-unresolved
 import { UtilityClasses, WrappidDataContext } from "@wrappid/styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,11 +27,13 @@ export default function DefaultAppBarContent(props) {
   const dispatch = useDispatch();
   let { config } = React.useContext(WrappidDataContext);
   let { appLogo } = React.useContext(CoreResourceContext);
-  const auth = useSelector((state) => state?.auth || {});
+  const { accessToken, user: { photo } } = useSelector((state) => state?.auth || {});
   const mdm = useSelector((state) => state.mdm);
-  const [getSettingMetaFlag, setGetSettingMetaFlag] = useState(false);
-  const [platform, setPlatform] = useState(null);
-  const [appbarType, setAppbarType] = useState("primary");
+  const [getSettingMetaFlag, setGetSettingMetaFlag] = React.useState(false);
+  const [platform, setPlatform] = React.useState(null);
+  const [appbarType, setAppbarType] = React.useState("primary");
+
+  const authenticated = accessToken ? true : false;
 
   const {
     handleDrawer,
@@ -44,9 +45,9 @@ export default function DefaultAppBarContent(props) {
    * state driven component enablement of the app bar content
    */
   // eslint-disable-next-line no-unused-vars
-  const [logoEnabled, setLogoEnabled] = useState(_logoEnabled);
+  const [logoEnabled, setLogoEnabled] = React.useState(_logoEnabled);
   // eslint-disable-next-line no-unused-vars
-  const [leftMenuEnabled, setLeftMenuEnabled] = useState(_leftMenuEnabled);
+  const [leftMenuEnabled, setLeftMenuEnabled] = React.useState(_leftMenuEnabled);
 
   React.useEffect(() => {
     /**
@@ -73,9 +74,9 @@ export default function DefaultAppBarContent(props) {
       if (mdm.getSettingMetaSuccess) {
         setGetSettingMetaFlag(false);
       }
-      dispatch(getSettingMeta(null, auth.accessToken));
+      dispatch(getSettingMeta(null, accessToken));
     }
-  }, [getSettingMetaFlag, mdm.getSettingMetaSuccess, dispatch, auth.accessToken]);
+  }, [getSettingMetaFlag, mdm.getSettingMetaSuccess, dispatch, accessToken]);
 
   /* AppBar PopOver */
   const [_appbarPopOverAnchorEl, set_appbarPopOverAnchorEl] =
@@ -118,7 +119,7 @@ export default function DefaultAppBarContent(props) {
               aria-label="open drawer"
               onClick={handleDrawer}
               edge="start"
-              disabled={!auth?.uid}
+              disabled={!authenticated}
             >
               <CoreIcon>menu</CoreIcon>
             </CoreIconButton>
@@ -136,7 +137,7 @@ export default function DefaultAppBarContent(props) {
         </CoreStack>
 
         {/* authenticated user content */}
-        {auth && auth.uid && (
+        {authenticated && (
           <CoreStack
             direction="row"
             NativeId="appBarMenuGrid"
@@ -194,7 +195,7 @@ export default function DefaultAppBarContent(props) {
               }}
             >
               <CoreAvatar
-                src={auth?.photo}
+                src={photo}
                 styleClasses={[CoreClasses.DATA_DISPLAY.AVATAR_SMALL]}
               />
             </CoreIconButton>

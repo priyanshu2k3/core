@@ -1,5 +1,5 @@
 import { FORM_IDS } from "../components/inputs/forms/coreFormConstants";
-import { communicationTypes, __EntityStatus } from "../config/constants";
+import { __EntityStatus, communicationTypes } from "../config/constants";
 
 function San_URL_ADD_PATH_PARAM_ID(formData, apiMeta/* , state */) {
   return {
@@ -412,7 +412,7 @@ function SanRxRexharge(formData, apiMeta, state/* , others */) {
       state.mdm.settingMeta.find((eachMeta) => eachMeta.name === "rxCacheCharge")?.value?.gst;
 
   return {
-    endpoint : apiMeta.endpoint.replace(":id", state?.auth?.uid),
+    endpoint : apiMeta.endpoint.replace(":id", state?.auth?.user?.id),
     reduxData: apiMeta.reduxData,
     values   : {
       amount: amountWithTax * 100,

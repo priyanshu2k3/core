@@ -3,15 +3,12 @@ import React from "react";
 
 // eslint-disable-next-line import/no-unresolved
 import { NativeAppDiv } from "@wrappid/native";
-import { useSelector } from "react-redux";
 
 import { sanitizeComponentProps } from "../../utils/componentUtil";
 
 export default function CoreAppDiv(props) {
   props = sanitizeComponentProps(CoreAppDiv, props);
-  let { uid } = useSelector((state) => state?.auth || {});
-
-  return <NativeAppDiv {...props} uid={uid} />;
+  return <NativeAppDiv {...props} />;
 }
 
 CoreAppDiv.validProps = [];

@@ -5,6 +5,8 @@ import React from "react";
 import { nativeUseNavigate } from "@wrappid/native";
 import { useSelector } from "react-redux";
 
+import CoreApiVersion from "./CoreApiVersion";
+import CoreAppVersion from "./CoreAppVersion";
 import CoreClasses from "../../styles/CoreClasses";
 import CoreAvatar from "../dataDisplay/CoreAvatar";
 import CoreDivider from "../dataDisplay/CoreDivider";
@@ -17,23 +19,22 @@ import CoreStack from "../layouts/CoreStack";
 import CoreMenu from "../navigation/CoreMenu";
 import CoreCard from "../surfaces/CoreCard";
 import CoreCardHeader from "../surfaces/CoreCardHeader";
-import CoreApiVersion from "./CoreApiVersion";
-import CoreAppVersion from "./CoreAppVersion";
 
 export default function CoreProfilePopOver(props) {
   // eslint-disable-next-line no-console
   // console.log(props);
   const navigate = nativeUseNavigate();
-  const { user } = useSelector((state) => state?.auth || {});
-
   const {
-    name = null,
-    photoUrl: photo = null,
-    email = null,
-    emailVerified = false,
-    phone = null,
-    phoneVerified = false,
-  } = user || {};
+    user: {
+      name = null,
+      photo = null,
+      email = null,
+      emailVerified = false,
+      phone = null,
+      phoneVerified = false,
+    } 
+  } = useSelector((state) => state?.auth || {});
+  
   const { onClose } = props;
   const profileCardMenu = [
     {

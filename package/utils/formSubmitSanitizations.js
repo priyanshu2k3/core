@@ -440,7 +440,7 @@
 
 // --export function SanRxRexharge(formData, apiMeta, state, others) {
 //   console.error("formData", formData);
-//   console.error("endpoint", apiMeta.endpoint.replace(":id", state?.auth?.uid));
+//   console.error("endpoint", apiMeta.endpoint.replace(":id", state?.auth?.user?.id));
 //   console.error("reduxData", apiMeta.reduxData);
 //   console.error("state", state);
 //   // var amountWithTax = formData.rxPackages + formData.rxPackages * 0.1;
@@ -456,7 +456,7 @@
 //           ?.ratio,
 //       amount: amountWithTax * 100,
 //     },
-//     endpoint: apiMeta.endpoint.replace(":id", state?.auth?.uid),
+//     endpoint: apiMeta.endpoint.replace(":id", state?.auth?.user?.id),
 //     reduxData: apiMeta.reduxData,
 //   };
 // }
